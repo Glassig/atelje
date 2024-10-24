@@ -1,0 +1,27 @@
+{
+  "name": "atelje",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "ts-node ./bin/www",
+    "devstart": "tsx watch ./bin/www",
+    "dev": "SET DEBUG=atelje:* | npm run devstart"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "debug": "^4.3.7",
+    "express": "^4.16.1",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.7",
+    "@types/express": "^5.0.0",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.7.9",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.1"
+  }
+}
