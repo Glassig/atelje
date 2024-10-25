@@ -3,16 +3,20 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "ts-node ./bin/www",
-    "devstart": "tsx watch ./bin/www",
-    "dev": "SET DEBUG=atelje:* | npm run devstart"
+    "start:non-dev": "ts-node ./src/bin/www",
+    "devstart": "tsx watch ./src/bin/www",
+    "start": "SET DEBUG=atelje:* | npm run devstart"
   },
   "dependencies": {
     "cookie-parser": "^1.4.4",
     "debug": "^4.3.7",
+    "dotenv": "^16.4.5",
     "express": "^4.16.1",
     "http-errors": "^2.0.0",
+    "mongodb": "^6.10.0",
+    "mongoose": "^8.7.2",
     "morgan": "^1.10.0",
+    "prettier": "^3.3.3",
     "pug": "^3.0.3"
   },
   "devDependencies": {
