@@ -1,6 +1,4 @@
-const mongoose = require("mongoose");
-
-const Schema = mongoose.Schema;
+import { Schema, model } from "mongoose";
 
 const ProjectSchema = new Schema({
   pattern: { type: Schema.Types.ObjectId, ref: "Pattern", required: true },
@@ -10,11 +8,8 @@ const ProjectSchema = new Schema({
   notes: { type: String },
 });
 
-// Virtual for author's URL
 ProjectSchema.virtual("url").get(function () {
-  // We don't use an arrow function as we'll need the this object
-  return `/catalog/project/${this._id}`;
+  return `/project/${this._id}`;
 });
 
-// Export model
-module.exports = mongoose.model("Project", ProjectSchema);
+module.exports = model("Project", ProjectSchema);

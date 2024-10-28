@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1= title
+    h2 List of sewing patterns
+    if patterns_list.length
+        ul 
+            each pattern in patterns_list
+                li 
+                    a(href=pattern.url) #{pattern.name}
+                    |   by #{pattern.maker}
+    else 
+        p No patterns to display

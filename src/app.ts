@@ -5,7 +5,8 @@ import cookieParser from "cookie-parser";
 import logger from "morgan";
 
 import { indexRouter } from "./routes/index";
-import { usersRouter } from "./routes/users";
+import { patternsRouter } from "./routes/patterns";
+import { projectsRouter } from "./routes/projects";
 import mongoose from "mongoose";
 import { mongo } from "./config";
 
@@ -30,7 +31,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/patterns", patternsRouter);
+app.use("/projects", projectsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (_req, _res, next) {
@@ -39,11 +41,8 @@ app.use(function (_req, _res, next) {
 
 // error handler
 app.use(function (err: any, req: Request, res: Response, next: NextFunction) {
-  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
-
-  // render the error page
   res.status(err.status || 500);
   res.render("error");
 });

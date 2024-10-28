@@ -5,13 +5,14 @@
   "scripts": {
     "start:non-dev": "ts-node ./src/bin/www",
     "devstart": "tsx watch ./src/bin/www",
-    "start": "SET DEBUG=atelje:* | npm run devstart"
+    "start": "cross-env DEBUG=atelje:* | npm run devstart"
   },
   "dependencies": {
     "cookie-parser": "^1.4.4",
     "debug": "^4.3.7",
     "dotenv": "^16.4.5",
     "express": "^4.16.1",
+    "express-async-handler": "^1.2.0",
     "http-errors": "^2.0.0",
     "mongodb": "^6.10.0",
     "mongoose": "^8.7.2",
@@ -24,6 +25,7 @@
     "@types/express": "^5.0.0",
     "@types/morgan": "^1.9.9",
     "@types/node": "^22.7.9",
+    "cross-env": "^7.0.3",
     "nodemon": "^3.1.7",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.1"

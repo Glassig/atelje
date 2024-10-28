@@ -1,22 +1,12 @@
 # Ateljé Angelina
-We all need an ateljer.
+
+We all need an ateljé.
 
 This project was generated using the express generator.
 
 To run on powershell in devmode:
-`npm run dev`.
-
+`npm run start`.
 
 ## Design
-### We need a list of sewing patterns
-Each sewing pattern need:
-- Tags (top, bottom, dress, baby, toddler)
-- Description (text)
-- Difficulty (beginner, intermediate, advanced)
 
-### We need a list of projects
-Each project need:
-- Which pattern
-- Fabric (composition and amount)
-- Modifications
-- Notes on what should change for next time
+We have a list of sewing patterns, and a list of sewing projects. Each sewing project references a sewing pattern.

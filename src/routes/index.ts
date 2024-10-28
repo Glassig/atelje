@@ -1,8 +1,6 @@
-import express, {Router} from 'express';
+import express, { Router } from "express";
 export const indexRouter: Router = express.Router();
 
-/* GET home page. */
-indexRouter.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+indexRouter.get("/", function (req, res, next) {
+  res.render("index", { title: "Ateljé Angelina" });
 });
-
