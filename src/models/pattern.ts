@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 const PatternSchema = new Schema({
-  name: { type: String, required: true, maxLength: 100 },
+  name: { type: String, required: true, maxLength: 100, index: true },
   maker: { type: String, required: true, maxLength: 100 },
   description: { type: String },
   difficulty: [{ type: String, enum: ["Beginner", "Intermediate", "Advanced"], default: "Intermediate" }],
