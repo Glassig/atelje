@@ -14,7 +14,7 @@ exports.patterns_detail = asyncHandler(async (req, res, next) => {
     res.status(404);
     return next(err);
   }
-  res.render("pattern_detail", { pattern: pattern });
+  res.render("patternDetail", { pattern: pattern });
 });
 
 exports.patterns_create_get = asyncHandler(async (req, res, next) => {
