@@ -1,4 +1,5 @@
 const Pattern = require("../models/pattern.ts");
+const Patterntag = require("../models/patterntag.ts");
 import asyncHandler from "express-async-handler";
 
 exports.patterns_list = asyncHandler(async (req, res, next) => {
@@ -18,11 +19,37 @@ exports.patterns_detail = asyncHandler(async (req, res, next) => {
 });
 
 exports.patterns_create_get = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: patterns create GET");
+  const tags = await Patterntag.find({}, "name").exec();
+  res.render("patternCreateForm", {
+    options: [
+      { name: "Beginner", id: "Beginner" },
+      { name: "Intermediate", id: "Intermediate" },
+      { name: "Advanced", id: "Advanced" },
+    ],
+    tags: tags,
+  });
 });
 
 exports.patterns_create_post = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: patterns create POST");
+  const newPattern = new Pattern({
+    name: req.body.name,
+    maker: req.body.maker,
+    description: req.body.description,
+    difficulty: req.body.difficulty,
+    tags: req.body.tags + "aaaa",
+  });
+
+  // TODO validate fields
+
+  newPattern
+    .save()
+    .then(() => {
+      res.send("Successfully saved the new pattern");
+    })
+    .catch((err: any) => {
+      console.error("Something went wrong: ", err);
+      res.render("error", { error: err });
+    });
 });
 
 exports.patterns_delete_get = asyncHandler(async (req, res, next) => {

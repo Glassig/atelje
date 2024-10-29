@@ -3,6 +3,7 @@ extends layout
 block content
     h1= title
     h2 List of sewing patterns
+    a(href="patterns/create") Add a new pattern
     if patterns_list.length
         ul 
             each pattern in patterns_list
